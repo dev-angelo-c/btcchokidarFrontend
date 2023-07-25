@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+:root {
+  --element-height: 55px;
+}
+
 .cardContainer{
     display: flex;
     flex-direction: column;
@@ -38,6 +42,18 @@
   font-family: 'MeyrinRegular';
   font-weight: normal;
   font-style: normal;
+}
+
+.formstyles{
+  display: flex;
+  flex-direction: column;
+  height: 125px;
+  border: 1px solid grey;
+  width: 26%;
+  border-radius: 14px;
+  box-shadow: 9px 5px 20px 3px #8080804f;
+  margin: 20px;
+  padding: 20px;
 }
 
 .navBarOne {
@@ -88,4 +104,27 @@
   text-decoration: none;
   font-size: 11pt;
   text-align: center;
+}
+
+.buttonClicked{
+  height: var(--element-height);
+  width: calc(var(--element-height) * 1.618); /* golden ratio */
+  border: 1px solid white;
+  background-color: purple;
+  border-radius: 5px;
+  box-shadow: 8px 8px 19px #80808063;
+}
+
+.buttonUnClicked{
+  height: var(--element-height);
+  width: calc(var(--element-height) * 1.618); /* golden ratio */
+  border: 1px solid purple;
+  border-radius: 5px;
+  box-shadow: 8px 8px 19px #80808063;
+}
+
+.ocrimgForm{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

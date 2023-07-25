@@ -1,16 +1,17 @@
 import React from "react";
 //import PropTypes from 'prop-types';
 
-const FlexColumn = ({ children, width="100%" }) => {
-  const style = {
+const FlexColumn = ({style, children, width="100%" }) => {
+  const styles = {
     display: 'flex',
     flexDirection: 'column',
     width: width,
     backgroundColor: "#f9f9f9",
-    padding:"10px"
+    padding:"10px",
+    ...style
   };
 
-  return <div style={style}>{children}</div>;
+  return <div style={styles}>{children}</div>;
 };
 
 // FlexColumn.propTypes = {
