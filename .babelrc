@@ -1,0 +1,13 @@
+{
+  "parserOpts": { 
+    "allowReturnOutsideFunction": true 
+  },
+  "presets": [       
+    "@babel/preset-react",
+    [ 
+      "@babel/preset-env", { 
+        "modules": "auto"
+      } 
+    ]
+  ]
+}

@@ -1,0 +1,22 @@
+
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.item {
+  flex: 1; /* Grow and shrink at the same rate as other flex items */
+  margin: 10px; /* Add some margin around items */
+  padding: 20px; /* Add some padding within items */
+  border: 1px solid black; /* Add a border around items */
+  font-family: monospace;
+}
+
+
+

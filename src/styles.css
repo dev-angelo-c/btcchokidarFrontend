@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    gap: 2px;
+}
+
+.card{
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(50%, 75%) 1fr;
+  grid-template-rows: 11rem;
+  font-family: monospace;
+  margin: 5px;
+  padding: 5px;
+  gap: 3px;
+  border: 1px solid grey;
+}
+.cardDetailCol{
+  display: "flex"; 
+  flex-grow: 3;
+}
+.watchNow{
+  background-color: #f9f9f9;
+  display:flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center; 
+}
+
+.meyrinRegular{
+  font-family: 'MeyrinRegular';
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navBarOne {
+  width: 100px;
+  background-color: #0000ff4d;
+  position: absolute;
+  left: -1px;
+  top: 71px;
+  height: 100vh;
+  border-radius: 9px;
+  box-shadow: 10px 0px 20px 3px #80808054;
+}
+
+.navBar {
+  position: fixed;
+  display: flex;
+  top: 100px;
+  height: 62vh;  
+  transform: translateX(-125%);
+  transition: 0.5s;
+  overflow-x: hidden;
+  width: 80px;
+  background-color: #333;
+  box-shadow: 3px 3px 5px gray;
+}
+
+.navBar.show {  
+  position: fixed;
+  display: flex;
+  top: 100px;
+  left: 0;
+  height: 62vh;
+  transform: translateX(0);
+  width: 80px;
+  background-color: #333;
+  box-shadow: 3px 3px 5px gray;
+}
+
+.navBar a {
+  color: #333;
+  text-decoration: none;
+  font-size: 11pt;
+  text-align: center;
+}
+
+.navBar a:visited {
+  color: #333;
+  text-decoration: none;
+  font-size: 11pt;
+  text-align: center;
+}

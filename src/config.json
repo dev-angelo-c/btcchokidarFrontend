@@ -1,0 +1,13 @@
+{
+  "siteName": "BTC Chokidar",
+  "sortOptions":[
+    "asc",
+    "dsc",
+    "datePublished",
+    "length",
+    "rating",
+    "dateAdded",
+    "host",
+    "guest"
+  ]
+}
