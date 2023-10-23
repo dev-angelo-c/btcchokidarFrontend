@@ -1,46 +1,46 @@
-import React, {useEffect, useState, Suspense} from "react";
+import React, {useEffect, useState, Suspense, useCallback} from "react";
+import CardColumn from "../Components/ColumnDataContainer";
 import { Card } from "../Components/Card";
 import { callAirtable } from "../main";
-const jack = "hi There. ";
-
-const Loading = () => {
-  <div>
-    <p> Welcome </p>
-    <p> I am loading. Please give me a moment</p>
-    <p> My developer is forever a rookie :) </p>
-    <p> Enjoy your journey through the modern world of bitcoin conversation</p>
-    <p> It's likely nothing here is far removed from most ancient teachings</p>
-    <p> We use a little anonymous "cookie", which will easily be blocked by the Brave Browser </p>
-    <p> If you do not agree, you may close our site now. :)</p>
-  </div>
-}
+import { videosList } from "../videosList";
 
 export default () => {
   let [results, setResults] = useState([]);
 
-  useEffect( () => {
+  const callAirtableAPI = useCallback( () => {
     callAirtable()
-    .then( ({records}) => {
-      records ? setResults(records) : [];
+    .then( (data) => {      
+      
+      if(data?.records){
+        setResults(data.records);
+      }
+      setResults(videosList);
+      return;
+    
     })
     .catch( e => {
-      console.error( " ERR ", e);
-    })    
-  }, [])
+      console.error( " ERR ", e);            
+      return () => "error";
+    })
+  
+  })
+
+  useEffect( () => {
+    console.count("What is the effect of this useEffect ");
+    callAirtableAPI()
+  }, [callAirtableAPI])
 
   return (
-    <Suspense fallback={<Loading />}>
-      <div className={"cardContainer"}>      
-        {
-          results
-          //gather custom sort order
-          .sort( (a, b) => a.fields.Order - b.fields.Order)
-          .map( ( i ) => {
-            return <Card {...i?.fields} key={i?.id} />
-          })
-        }
-      </div> 
-    </Suspense>
+    <CardColumn>      
+      {
+        results
+        .sort( (a, b) => a.fields.Order - b.fields.Order)
+        .map( ( i ) => {
+          return <Card {...i?.fields} key={i?.id} />
+        })
+      }
+    </CardColumn>
   )
 }
+
 

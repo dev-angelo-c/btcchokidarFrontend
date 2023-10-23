@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import { getFunctions, httpsCallable } from 'firebase/functions';
 import { videosList } from "./videosList";
-const PROD = process.env.NODE_ENV;
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,19 +26,16 @@ const functions = getFunctions(app);
 
 //https://firebase.google.com/docs/hosting/manage-hosting-resources
 
-export const callAirtable = async () => {
-    let data = {};
+export const callAirtable = () => {
+    console.count("CallAT ");
     const ytLinks = httpsCallable(functions, 'ytlinks');
-    await ytLinks({ text: "" })
-    .then( (result) => {
-      // Read result of the Cloud Function.
-      console.count("Remote lambda RESULT: ", result?.data?.records?.id);
-      data = result.data;
+    return ytLinks({ text: "" })
+    .then( ({data}) => {
+      return data;
     })
     .catch ( e => {
       console.error(" ERR: ", e)
     })
-    return data;
 }
 
 //make sure to pay attention to the name of the database.

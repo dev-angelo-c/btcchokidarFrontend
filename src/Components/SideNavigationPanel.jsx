@@ -16,18 +16,18 @@ import IconContainer from "./FlexOne";
 import TextContainer from "./FlexOne";
 import NavLinkContainer from "./FlexOne";
 import { showNav } from "../state/";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default () => {
   const [open, setOpen] = useRecoilState(showNav);
   console.log(" SIDE NAV MOUNTED", open)
   return (
+
     <div className={`navBar ${open ? 'show' : ''}`}>
-      <IconColumn style={{ backgroundColor: 'red' }}>
+      <IconColumn style={{ backgroundColor: '#e6e6e6' }}>
 
-
-        <NavLinkContainer onclick={() => {  setOpen(true)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
+        <NavLinkContainer onClick={() => { setOpen(false)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
           <Link to={`/`}>
             <IconContainer>
               <UniFilm />
@@ -37,8 +37,8 @@ export default () => {
             </TextContainer>
           </Link>
         </NavLinkContainer>
-
-        <NavLinkContainer onclick={() => { setOpen(true) }} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
+  {/*
+        <NavLinkContainer onClick={() => { setOpen(false) }} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
           <Link to={`/texts`}>
             <IconContainer>
               <Comment />
@@ -49,9 +49,8 @@ export default () => {
           </Link>
         </NavLinkContainer >
 
-        <NavLinkContainer onclick={() => { setOpen(true) }} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
+        <NavLinkContainer onClick={() => { setOpen(false) }} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
           <Link to={`/blog`}>
-
             <IconContainer>
               <Thing2 />
             </IconContainer>
@@ -61,11 +60,8 @@ export default () => {
           </Link>
         </NavLinkContainer>
 
-
-
-        <NavLinkContainer onclick={() => {  setOpen(true)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
+        <NavLinkContainer onClick={() => {  setOpen(false)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
           <Link to={`/junkdrawer`}>
-
             <IconContainer>
               <Thing4 />
             </IconContainer>
@@ -73,12 +69,10 @@ export default () => {
               <Text as={"div"}>Junk Drawer </Text>
             </TextContainer>
           </Link>
-
         </NavLinkContainer>
 
-        <NavLinkContainer onclick={() => {  setOpen(true)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
+        <NavLinkContainer onClick={() => {  setOpen(false)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
           <Link to={`/store`}>
-
             <IconContainer>
               <Thing5 />
             </IconContainer>
@@ -87,8 +81,8 @@ export default () => {
             </TextContainer>
           </Link>
         </NavLinkContainer>
-
-        <NavLinkContainer onclick={() => {  setOpen(true)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
+  */}
+        <NavLinkContainer onClick={() => {  setOpen(false)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
           <Link to={`/ocr`}>
             <IconContainer>
               <UniFilm />
@@ -98,7 +92,9 @@ export default () => {
             </TextContainer>
           </Link>
         </NavLinkContainer>
+
       </IconColumn>
     </div>
+  
   )
 }

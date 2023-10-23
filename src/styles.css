@@ -17,14 +17,14 @@
 
 .card{
   display: grid;
-  width: 100%;
   grid-template-columns: minmax(50%, 75%) 1fr;
   grid-template-rows: 11rem;
   font-family: monospace;
-  margin: 5px;
-  padding: 5px;
+  margin: 0.5em;
+  padding: 0.5em;
   gap: 3px;
   border: 1px solid grey;
+  border-radius: 5px;
 }
 .cardDetailCol{
   display: "flex"; 

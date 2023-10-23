@@ -1,13 +1,12 @@
 import React from "react";
 //import PropTypes from 'prop-types';
 
-const FlexColumn = ({style, children, width="100%" }) => {
+const FlexColumn = ({style, children, bgHex="#f9f9f9" }) => {
   const styles = {
     display: 'flex',
     flexDirection: 'column',
-    width: width,
-    backgroundColor: "#f9f9f9",
-    padding:"10px",
+    maxWidth: '100%',
+    backgroundColor: bgHex,
     ...style
   };
 

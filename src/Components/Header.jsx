@@ -15,22 +15,22 @@ export default () => {
 
   const [open, setOpen] = useRecoilState(showNav);
   return (
-    <>
-      <div style={{ display: "flex", justifyContent:"center", alignItems: "center" }} >
-        <FlexOne onClick = { () => setOpen(!open) }>
-          <Hamburger
-            style={{
-              padding: '1px',
-              border: '1px solid black',
-              borderRadius: '13%',
-              boxShadow: '2px 2px 3px grey',
-              width: '50%',
-              height: '20px',
-              margin: '10px'
-            }} 
-          />
-        </FlexOne>    
-        <FlexThree>
+    <div style={{ display: "flex", justifyContent:"center", alignItems: "center" }} >
+      <FlexOne onClick = { () => setOpen(!open) }>
+        <Hamburger
+          style={{
+            padding: '1px',
+            border: '1px solid black',
+            borderRadius: '13%',
+            boxShadow: '2px 2px 3px grey',
+            width: '50%',
+            height: '20px',
+            margin: '10px'
+          }} 
+        />
+      </FlexOne>    
+      <FlexThree direction="column">
+        <div style={{ display: "flex", width: "100%", justifyContent:"center", alignItems: "center", marginTop: "10px", marginBottom: "15px"}} >
           <h1 style={{
                 fontFamily: 'DatalegreyaThin',
                 fontWeight: 'normal',
@@ -38,13 +38,13 @@ export default () => {
 
               }}
           >BTC Chokidar</h1>
-        </FlexThree>
-      </div>
-      <div style={{ display: "flex", justifyContent:"center", alignItems: "center", marginTop: "10px", marginBottom: "15px"}} >
-        <p style={{fontFamily:"DatalegreyaThin", textAlign:"center", fontSize: "1.2em"}}>
-          The gods help those who help themselves
-        </p>
-      </div>
-    </>
+        </div>
+        <div style={{ display: "flex", justifyContent:"center", alignItems: "center", marginTop: "10px", marginBottom: "15px"}} >
+          <p style={{fontFamily:"DatalegreyaThin", textAlign:"center", fontSize: "1.2em"}}>
+            The gods help those who help themselves
+          </p>
+        </div>
+      </FlexThree>
+    </div>
   )
 }

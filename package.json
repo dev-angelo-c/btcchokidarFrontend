@@ -4,8 +4,9 @@
   "description": "btcchokidar frontend",
   "main": "index.html",
   "scripts": {
-    "builddev": "cp src/index.html dist/ && cp src/styles.css dist/ && cp src/jack-base-css.css dist/ && rollup -c --environment NODE_ENV:development",
-    "buildprod": "cp src/index.html dist/ && cp src/styles.css dist/ && cp src/jack-base-css.css dist/ && rollup -c --environment NODE_ENV:production",
+    "copystyles": "cp src/OCRstyles.css dist/ && cp src/styles.css dist/ && cp src/jack-base-css.css dist/",
+    "builddev": "npm run copystyles && cp src/index.html dist/ && rollup -c --environment NODE_ENV:development",
+    "buildprod": "npm run copystyles && cp src/index.html dist/ && rollup -c --environment NODE_ENV:production",
     "deploy": "firebase hosting:channel:deploy coffee-folk-chicken-goods",
     "clean": "rm -rf ./dist/ && mkdir dist",
     "start": "npm run builddev"
@@ -16,14 +17,16 @@
   "author": "btcchokidar",
   "dependencies": {
     "@iconscout/react-unicons": "^2.0.2",
-    "firebase": "^9.10.0",
-    "firebase-admin": "^11.1.0",
     "deepmerge": "^4.3.1",
     "dotenv": "^16.3.1",
+    "firebase": "^9.10.0",
+    "firebase-admin": "^11.1.0",
+    "imagekitio-react": "^3.0.0",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^6.14.1",
     "recoil": "^0.7.7",
+    "regenerator-runtime": "^0.14.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -34,7 +37,9 @@
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.1.0",
     "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "express": "^4.18.2",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "rollup-plugin-peer-deps-external": "^2.2.4"
   }
 }
