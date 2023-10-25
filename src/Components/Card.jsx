@@ -31,11 +31,11 @@ const Data = ({title, host, guest, text}) => {
   )
 }
 
-export const Card = ({host, link, guest, title, text, Order}) => {
+export const Card = ({host, link, guest, title, text}) => {
     return (
-      <div className={"card"} >
-        <Data title={title} host={host} guest={guest} text={text} />
-        <Watch link={link} order={Order} />
+      <div className={"card"} key={"card"}>
+        <Data title={title} host={host} guest={guest} text={text} key={"data"} />
+        <Watch link={link}  key={"watch"} />
       </div>
     )
 }

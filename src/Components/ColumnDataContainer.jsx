@@ -5,7 +5,7 @@ const FlexColumn = ({style, children, bgHex="#f9f9f9" }) => {
   const styles = {
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: '100%',
+    width: '100%',
     backgroundColor: bgHex,
     ...style
   };

@@ -26,17 +26,16 @@ export default () => {
   })
 
   useEffect( () => {
-    console.count("What is the effect of this useEffect ");
     callAirtableAPI()
   }, [callAirtableAPI])
 
   return (
-    <CardColumn>      
+    <CardColumn key="HelloWorld">      
       {
         results
         .sort( (a, b) => a.fields.Order - b.fields.Order)
-        .map( ( i ) => {
-          return <Card {...i?.fields} key={i?.id} />
+        .map( ( i, idx ) => {
+          return <Card {...i?.fields} key={idx} />
         })
       }
     </CardColumn>
