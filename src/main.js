@@ -27,15 +27,19 @@ const functions = getFunctions(app);
 //https://firebase.google.com/docs/hosting/manage-hosting-resources
 
 export const callAirtable = () => {
-    console.count("CallAT ");
-    const ytLinks = httpsCallable(functions, 'ytlinks');
-    return ytLinks({ text: "" })
-    .then( ({data}) => {
-      return data;
-    })
-    .catch ( e => {
-      console.error(" ERR: ", e)
-    })
+  
+  console.count("CallAT ");
+
+  const ytLinks = httpsCallable(functions, 'ytlinks');
+  
+  return ytLinks({ text: "" })
+  .then( ({data}) => {
+    return data;
+  })
+  .catch ( e => {
+    console.error(" ERR: ", e)
+  })
+  
 }
 
 //make sure to pay attention to the name of the database.

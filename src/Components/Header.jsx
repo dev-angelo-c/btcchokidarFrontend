@@ -15,8 +15,8 @@ export default () => {
 
   const [open, setOpen] = useRecoilState(showNav);
   return (
-    <div style={{ display: "flex", justifyContent:"center", alignItems: "center" }} >
-      <FlexOne onClick = { () => setOpen(!open) }>
+    <div className="header-template" >
+      <div onClick = { () => setOpen(!open) } style={{display: "grid", placeItems: "center", gridArea: "menuIcon"}}>
         <Hamburger
           style={{
             padding: '1px',
@@ -28,23 +28,18 @@ export default () => {
             margin: '10px'
           }} 
         />
-      </FlexOne>    
-      <FlexThree direction="column">
-        <div style={{ display: "flex", width: "100%", justifyContent:"center", alignItems: "center", marginTop: "10px", marginBottom: "15px"}} >
-          <h1 style={{
-                fontFamily: 'DatalegreyaThin',
-                fontWeight: 'normal',
-                fontStyle: 'normal',
-
-              }}
-          >BTC Chokidar</h1>
-        </div>
-        <div style={{ display: "flex", justifyContent:"center", alignItems: "center", marginTop: "10px", marginBottom: "15px"}} >
-          <p style={{fontFamily:"DatalegreyaThin", textAlign:"center", fontSize: "1.2em"}}>
-            The gods help those who help themselves
-          </p>
-        </div>
-      </FlexThree>
+      </div>    
+      <h1 style={{
+            fontFamily: 'DatalegreyaThin',
+            fontWeight: 'normal',
+            fontStyle: 'normal',
+            gridArea:"headerTitle",
+            textAlign: "center"
+          }}
+      >BTC Chokidar</h1>
+      <p style={{gridArea: "subHeader", fontFamily:"DatalegreyaThin", textAlign:"center", fontSize: "1.2em"}}>
+        The gods help those who help themselves
+      </p>
     </div>
   )
 }

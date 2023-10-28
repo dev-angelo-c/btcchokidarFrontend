@@ -1,9 +1,7 @@
 import React from "react";
-import Text from "./Text";
 import UniFilm from '@iconscout/react-unicons/icons/uil-film';
-import PresentationColumn from "./ColumnDataContainer";
 
-const Watch = ({ link, order }) => {
+const Watch = ({ link }) => {
   return(
    <div className="watchNow">
       <a href={link} target="_blank">
@@ -13,28 +11,30 @@ const Watch = ({ link, order }) => {
   )
 }
 
-
-const Data = ({title, host, guest, text}) => {
-  return (
-    <PresentationColumn>
-      <div style={{display: 'flex', flexDirection: 'column', flexGrow: 1}}>
-        <Text as="h3">{title}</Text>
-      </div>
-      <div style={{display: 'flex', flexDirection: 'column', flexGrow: 2}}>
-        {host && <Text as="p">{`Host: ${host} `}</Text> }
-        {guest && <Text as="p">{`Guest: ${guest} `}</Text>}
-      </div>
-      <div style={{display: 'flex', flexDirection: 'column', flexGrow: 2}}>
-        {text && <Text>{text}</Text>}
-      </div>
-    </PresentationColumn>
+const HostGuest = ({host, guest}) => {
+  return(
+    <div className="hostGuest">
+      <h3>Featuring:</h3>
+      <p>{host}</p>
+      <p>{guest}</p>
+    </div>
   )
 }
 
-export const Card = ({host, link, guest, title, text}) => {
+const VideoDescription = ({subtitle}) => {
+  return (
+    <div className="videoDescription">
+      <p style={{textOverflow: "ellipsis"}}>{subtitle}</p>
+    </div>
+  )
+}
+
+export const Card = ({host, link, guest, title, subtitle}) => {
     return (
       <div className={"card"} key={"card"}>
-        <Data title={title} host={host} guest={guest} text={text} key={"data"} />
+        <h3 className="cardTitle">{title}</h3>
+        <HostGuest  host={host} guest={guest} />
+        <VideoDescription subtitle={subtitle} key={"data"} />
         <Watch link={link}  key={"watch"} />
       </div>
     )

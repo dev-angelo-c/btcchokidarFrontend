@@ -32,11 +32,14 @@ export default () => {
   return (
     <CardColumn key="HelloWorld">      
       {
+        results ?
         results
         .sort( (a, b) => a.fields.Order - b.fields.Order)
         .map( ( i, idx ) => {
-          return <Card {...i?.fields} key={idx} />
+          console.log(" I fields: ", i.fields);
+          return <Card {...i.fields} key={idx} />
         })
+        : <p className="watchNow">Loading...</p>
       }
     </CardColumn>
   )

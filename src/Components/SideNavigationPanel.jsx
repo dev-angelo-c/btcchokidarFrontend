@@ -85,7 +85,7 @@ export default () => {
         <NavLinkContainer onClick={() => {  setOpen(false)}} style={{ flexDirection: "column", margin: "2px", padding: "1px" }}>
           <Link to={`/ocr`}>
             <IconContainer>
-              <UniFilm />
+              <Thing5 />
             </IconContainer>
             <TextContainer>
               <Text as={"div"}>Tools </Text>
