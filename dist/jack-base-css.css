@@ -1,0 +1,42 @@
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Default styling for items */
+.item {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid black;
+  font-family: monospace;
+}
+
+/* Row of promotional images */
+.promo-images {
+  display: flex;
+  justify-content: space-between; /* Distribute images evenly */
+}
+
+.promo-images img {
+  width: 100%; /* Makes sure images take the full width of their parent container */
+  max-width: 300px; /* Assume a default max width for large screens */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .item {
+    flex-basis: 100%; /* Make items take the full width */
+    margin-bottom: 20px; /* Adjust margin for stacking */
+  }
+
+  .promo-images img {
+    max-width: 60px; /* 20% of the original 300px */
+  }
+}

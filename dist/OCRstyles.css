@@ -1,0 +1,12 @@
+.response{
+  display: grid;
+  grid-template-areas:
+  "image text-from-image";
+  padding: 1.2em;
+  background: white;
+  height: 100%;
+}
+
+.image .text-from-image{
+  border: 1px solid grey;
+}
