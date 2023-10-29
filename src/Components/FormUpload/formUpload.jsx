@@ -43,7 +43,7 @@ export const FormUpload = () => {
     const URL = "https://us-central1-btcv2-9892c.cloudfunctions.net/ocr";
     const formData = new FormData(uploadForm);
 
-    fetch(devURL, {
+    fetch(URL, {
       method: 'POST',
       body: formData
     })
