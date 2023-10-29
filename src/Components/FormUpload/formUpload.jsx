@@ -39,16 +39,11 @@ export const FormUpload = () => {
   const submit = (e) => {
     e.preventDefault();
     const uploadForm = document.getElementById('uploadForm');
-
-    console.log(" FORM: ", Object.keys(e));
-    console.log(" target: ", e.target);
-    console.log(" currentTarget: ", e.currentTarget); 
-    console.log(" eventPhase: ", e.eventPhase)
-
-    const URL = `${NODE_ENV === "development" ? "http://127.0.0.1:5001/btcv2-9892c/us-central1/ocr" : "https://us-central1-btcv2-9892c.cloudfunctions.net/ocr"}`;
+    const devURL = "http://127.0.0.1:5001/btcv2-9892c/us-central1/ocr";
+    const URL = "https://us-central1-btcv2-9892c.cloudfunctions.net/ocr";
     const formData = new FormData(uploadForm);
 
-    fetch(URL, {
+    fetch(devURL, {
       method: 'POST',
       body: formData
     })

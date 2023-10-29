@@ -36,7 +36,6 @@ export default () => {
         results
         .sort( (a, b) => a.fields.Order - b.fields.Order)
         .map( ( i, idx ) => {
-          console.log(" I fields: ", i.fields);
           return <Card {...i.fields} key={idx} />
         })
         : <p className="watchNow">Loading...</p>
