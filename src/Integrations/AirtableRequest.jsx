@@ -12,7 +12,6 @@ export default () => {
       const fetchAirtable = async () => {
         try{
           const airtableResponse = await airtableYoutubeLinks()
-          console.log(" Do you do this? ", airtableResponse?.data?.records.length);
           setResults(airtableResponse?.data);
         }catch(e){
           console.error(" Error Fetching Airtable links");
@@ -25,7 +24,6 @@ export default () => {
     }
     return () => {
       setBeginFetch(0);
-      console.log(" Everything should be done now ", console.log(" results ", results));
     }
   }, [])
 

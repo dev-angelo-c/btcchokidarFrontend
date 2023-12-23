@@ -64,7 +64,6 @@ export const FormUpload = () => {
     })
     .then(response => response.json()) // Assuming the response will be JSON
     .then(data => {
-        console.log('Success:', data);
         // Handle success (e.g., show a message, redirect, etc.)
         const tempText = Object.values(data);
         const tempFileName = Object.entries(data);
