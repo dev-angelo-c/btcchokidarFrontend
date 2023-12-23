@@ -6,8 +6,7 @@
   "scripts": {
     "copystyles": "cp src/OCRstyles.css dist/ && cp src/styles.css dist/ && cp src/jack-base-css.css dist/",
     "builddev": "npm run copystyles && cp src/index.html dist/ && rollup -c --environment NODE_ENV:development",
-    "buildprod": "npm run copystyles && cp src/index.html dist/ && rollup -c --environment NODE_ENV:production",
-    "deploy": "firebase hosting:channel:deploy coffee-folk-chicken-goods",
+    "buildprod": "npm run clean && npm run copystyles && cp src/index.html dist/ && rollup -c --environment NODE_ENV:production",
     "clean": "rm -rf ./dist/ && mkdir dist",
     "start": "npm run builddev"
   },
