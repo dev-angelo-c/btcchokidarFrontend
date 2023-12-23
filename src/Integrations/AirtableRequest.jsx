@@ -5,12 +5,15 @@ import airtableYoutubeLinks from "../main";
 
 export default () => {
   let [results, setResults] = useState([]);
+  let [beginFetch, setBeginFetch] = useState(false)
 
   useEffect( () => {
+    setBeginFetch(true);
     const fetchAirtable = async () => {
       try{
         const airtableResponse = await airtableYoutubeLinks()
-        setResults(airtableResponse);
+        console.log(" Do you do this? ", airtableResponse?.data?.records.length);
+        setResults(airtableResponse?.data);
       }catch(e){
         console.error(" Error Fetching Airtable links");
       }
@@ -18,6 +21,7 @@ export default () => {
     
     fetchAirtable();
     return () => {
+      beginFetch(false);
       console.log(" Everything should be done now ", console.log(" results ", results));
     }
   }, [])

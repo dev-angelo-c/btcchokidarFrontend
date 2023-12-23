@@ -4,7 +4,6 @@ import YTLinks from "./Integrations/AirtableRequest";
 import Header from "./Components/Header";
 import RememberMe from "./Components/RememberMe";
 import SideNavigationPanel from "./Components/SideNavigationPanel";
-import Column from "./Components/ColumnDataContainer";
 import {FormUpload} from './Components/FormUpload/formUpload';
 import {Routes, Route } from "react-router-dom";
 
