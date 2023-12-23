@@ -7,9 +7,7 @@ const domContainer = document.querySelector('#root');
 const root = createRoot(domContainer);
 
 root.render(
-  <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
 )

@@ -1,39 +1,32 @@
 import React, {useEffect, useState, Suspense, useCallback} from "react";
 import CardColumn from "../Components/ColumnDataContainer";
 import { Card } from "../Components/Card";
-import { callAirtable } from "../main";
-import { videosList } from "../videosList";
+import airtableYoutubeLinks from "../main";
 
 export default () => {
   let [results, setResults] = useState([]);
 
-  const callAirtableAPI = useCallback( () => {
-    callAirtable()
-    .then( (data) => {      
-      
-      if(data?.records){
-        setResults(data.records);
-      }
-      setResults(videosList);
-      return;
-    
-    })
-    .catch( e => {
-      console.error( " ERR ", e);            
-      return () => "error";
-    })
-  
-  })
-
   useEffect( () => {
-    callAirtableAPI()
-  }, [callAirtableAPI])
+    const fetchAirtable = async () => {
+      try{
+        const airtableResponse = await airtableYoutubeLinks()
+        setResults(airtableResponse);
+      }catch(e){
+        console.error(" Error Fetching Airtable links");
+      }
+    }
+    
+    fetchAirtable();
+    return () => {
+      console.log(" Everything should be done now ", console.log(" results ", results));
+    }
+  }, [])
 
   return (
     <CardColumn key="HelloWorld">      
       {
-        results ?
-        results
+        results?.records ?
+        results.records
         .sort( (a, b) => a.fields.Order - b.fields.Order)
         .map( ( i, idx ) => {
           return <Card {...i.fields} key={idx} />

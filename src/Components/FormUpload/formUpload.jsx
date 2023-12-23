@@ -35,6 +35,21 @@ export const FormUpload = () => {
   const handleChange = (e) => {
     setFile(e.target.files[0]);
   };
+  const [previewImage, setPreviewImage] = useState(null);
+
+  const handleImagePreview = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setPreviewImage(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
 
   const submit = (e) => {
     e.preventDefault();
@@ -78,14 +93,18 @@ export const FormUpload = () => {
       </div>
       <div>
         <form method="post" encType="multipart/form-data" id="uploadForm">
-          <input onChange={handleChange} filename={text} type='file' id="avatar" name="avatar" accept="image/png, image/jpeg" />
+          <input onChange={handleImagePreview} filename={text} type='file' id="avatar" name="avatar" accept="image/png, image/jpeg" />
           <input type="submit" value="Upload Image" name="submit" onClick={submit}/>        
         </form>
       </div>
-      <div className='response'> 
-        <div className="image">
-          <img src={file} />
-        </div>
+      <div className='response'>         
+        <p>What is going on here? </p>
+        {previewImage && (
+          <div className="image">
+            <h2>Preview 2:</h2>
+            <img src={previewImage} alt="Preview" style={{ maxWidth: '50%' }} />
+          </div>
+        )}        
         <div className="text-from-image">
           <p>{discoveredText}</p>
         </div>
