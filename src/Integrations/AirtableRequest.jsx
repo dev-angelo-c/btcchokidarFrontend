@@ -8,7 +8,6 @@ export default () => {
   let [beginFetch, setBeginFetch] = useState(0)
 
   useEffect( () => {
-    setBeginFetch(beginFetch++);
     if(beginFetch < 1){
       const fetchAirtable = async () => {
         try{
@@ -21,6 +20,8 @@ export default () => {
       }
       
       fetchAirtable();
+      setBeginFetch(beginFetch++);
+
     }
     return () => {
       setBeginFetch(0);
